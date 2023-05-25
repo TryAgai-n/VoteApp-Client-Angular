@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'BottAppClient';
+  title = 'Платформа голосования';
+
+  activeComponent: any = 'candidates';
+  setActiveComponent(component: any) {
+    this.activeComponent = component;
+  }
 }

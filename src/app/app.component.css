@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #3f495d;
+
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+nav a.active {
+  color: #2b2d30;
+}

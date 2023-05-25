@@ -1,0 +1,15 @@
+<div class="candidate-list">
+  <div *ngFor="let candidate of CandidatePath" class="candidate-card">
+    <img [src]="candidate.image" alt="Фото кандидата">
+    <h3>{{ candidate.name }}</h3>
+    <p>{{ candidate.species }}</p>
+    <p class="candidate-card-ID">ID: {{ candidate.id }}</p>
+    <button (click)="vote(candidate)">Голосовать</button>
+  </div>
+</div>
+
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Предыдущая</button>
+  <span [ngClass]="getCurrentPageClass(currentPage)">{{ currentPage }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === getPageCount()">Следующая</button>
+</div>
