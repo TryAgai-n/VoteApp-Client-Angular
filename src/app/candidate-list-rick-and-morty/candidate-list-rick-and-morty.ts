@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-candidate-list',
-  templateUrl: './candidate-list.component.html',
-  styleUrls: ['./candidate-list.component.css']
+  selector: 'app-candidate-list-rick-and-morty',
+  templateUrl: './candidate-list-rick-and-morty.html',
+  styleUrls: ['./candidate-list-rick-and-morty.css']
 })
-export class CandidateListComponent implements OnInit {
+export class CandidateListRickAndMorty implements OnInit {
   CandidatePath: any[] = [];
 
   currentPage: number = 1;

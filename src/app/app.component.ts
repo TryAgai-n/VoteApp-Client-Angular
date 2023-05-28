@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Платформа голосования';
 
-  activeComponent: any = 'candidates';
+  activeComponent: any = 'test-candidate';
   setActiveComponent(component: any) {
     this.activeComponent = component;
   }

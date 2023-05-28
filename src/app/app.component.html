@@ -1,10 +1,11 @@
 <h1>{{ title }}</h1>
 <nav>
-  <a (click)="setActiveComponent('candidates')" [class.active]="activeComponent === 'candidates'">Кандидаты</a>
-  <a (click)="setActiveComponent('no-content')" [class.active]="activeComponent === 'no-content'">Test no Content</a>
+  <a (click)="setActiveComponent('test-candidate')" [class.active]="activeComponent === 'test-candidate'">Canidates</a>
+  <a (click)="setActiveComponent('upload')" [class.active]="activeComponent === 'upload'">Upload Candidate</a>
 </nav>
 
 
 <ng-container [ngSwitch]="activeComponent">
-  <app-candidate-list *ngSwitchCase="'candidates'"></app-candidate-list>
+  <app-main-candidate *ngSwitchCase="'test-candidate'"></app-main-candidate>
+  <app-upload-candidate *ngSwitchCase="'upload'"></app-upload-candidate>
 </ng-container>
