@@ -43,7 +43,7 @@ body {
 
 @media (min-width: 1200px) {
   .candidate-list {
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-columns: repeat(5, minmax(250px, 1fr));
   }
 }
 
