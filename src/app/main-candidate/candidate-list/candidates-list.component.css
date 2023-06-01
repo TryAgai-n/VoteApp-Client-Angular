@@ -41,43 +41,17 @@ body {
 
 
 
-@media (max-aspect-ratio: 19/9) {
-  .candidate-list {
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-  }
-}
-
-@media (max-aspect-ratio: 18/9) {
-  .candidate-list {
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
-  }
-}
-
 @media (max-aspect-ratio: 16/9) {
   .candidate-list {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-template-columns: repeat(5, minmax(250px, 1fr));
   }
 }
 
-@media (max-aspect-ratio: 4/3) {
+@media (max-aspect-ratio: 9/16) {
   .candidate-list {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
 }
-
-
-/*@media (min-width: 1200px) {*/
-/*  .candidate-list {*/
-/*    grid-template-columns: repeat(5, minmax(250px, 1fr));*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 992px) {*/
-/*  .candidate-list {*/
-/*    grid-template-columns: repeat(4, minmax(250px, 1fr));*/
-/*  }*/
-/*}*/
-
 
 .candidate-card:hover {
   transform: translateY(-5px);
