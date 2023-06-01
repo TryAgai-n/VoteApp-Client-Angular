@@ -1,4 +1,16 @@
-<form enctype="multipart/form-data" class="upload-form">
-  <input type="file" name="photo" accept="image/*" (change)="uploadPhoto($event)" />
+<app-main-navbar></app-main-navbar>
+
+<form #uploadForm enctype="multipart/form-data" class="upload-form" (submit)="uploadPhoto()">
+  <input type="file" name="photo" accept="image/*" />
   <input type="submit" value="Upload" />
 </form>
+
+<ng-template #successModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Upload Successful</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Your document has been successfully uploaded.</p>
+  </div>
+</ng-template>

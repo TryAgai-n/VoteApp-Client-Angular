@@ -19,17 +19,18 @@ body {
   margin-bottom: 40px;
 }
 
-@media (min-width: 1200px) {
+@media (max-aspect-ratio: 16/9) {
   .candidate-list {
     grid-template-columns: repeat(5, minmax(250px, 1fr));
   }
 }
 
-@media (max-width: 992px) {
+@media (max-aspect-ratio: 9/16) {
   .candidate-list {
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
 }
+
 
 .candidate-card {
   width: 250px;

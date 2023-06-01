@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  background: linear-gradient(to right, #3d94b8, #f6c3b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 5s ease infinite alternate;
+  background-size: 20%; /* Добавлено свойство background-size */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 50% 75%;
+  }
+  100% {
+    background-position: 75% 50%;
+  }
+}

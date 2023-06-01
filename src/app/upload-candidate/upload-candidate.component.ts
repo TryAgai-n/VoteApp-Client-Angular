@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { environment } from '../enviroments/enviroment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-upload-candidate',
@@ -7,15 +8,20 @@ import { environment } from '../enviroments/enviroment';
   styleUrls: ['./upload-candidate.component.css']
 })
 export class UploadCandidateComponent {
+  @ViewChild('successModal') successModal: any;
+  @ViewChild('uploadForm') uploadForm: any;
 
-  constructor() {}
+  uploading = false;
+  uploadSuccess = false;
 
-  uploadPhoto(event: any) {
-    event.preventDefault(); // Предотвращение перенаправления после отправки формы
+  constructor(private modalService: NgbModal) {}
 
-    const file = event.target.files[0];
-    const formData = new FormData();
-    formData.append('photo', file);
+  uploadPhoto() {
+    const formData = new FormData(this.uploadForm.nativeElement);
+    const file = formData.get('photo');
+
+    this.uploading = true;
+    this.uploadSuccess = false;
 
     fetch(environment.host + '/api/Upload/Upload', {
       method: 'POST',
@@ -24,12 +30,18 @@ export class UploadCandidateComponent {
       .then(response => {
         if (response.ok) {
           console.log('Upload successful');
+          this.uploadSuccess = true;
+          this.modalService.open(this.successModal);
         } else {
           console.error('Upload error:', response.status);
         }
+        this.uploading = false;
+        this.uploadForm.nativeElement.reset(); // Очистка значений формы
       })
       .catch(error => {
         console.error('Upload error:', error);
+        this.uploading = false;
+        this.uploadForm.nativeElement.reset(); // Очистка значений формы
       });
   }
 }

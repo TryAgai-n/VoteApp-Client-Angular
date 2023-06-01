@@ -20,10 +20,11 @@ export class CandidatesListComponent implements OnInit {
 
   ngOnInit() {
     this.ListDocument();
+    console.log('Candidate on init');
   }
 
   ListDocument() {
-    const url =  environment.host+'/api/Download/GetDocumentsList?skip=0&take=100';
+    const url =  environment.host+'/api/Download/GetDocumentsList?skip=0&take=20';
     this.http.get<Document[]>(url).subscribe(data => {
       this.documents = data;
     });

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  host: 'http://vote.my:5000'
+  host: 'http://192.168.10.250:5000'
 };
