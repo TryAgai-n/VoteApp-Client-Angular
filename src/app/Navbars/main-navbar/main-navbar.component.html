@@ -1,13 +1,21 @@
-<div class="navbar">
-  <input type="checkbox" id="navbar-toggle">
-  <label for="navbar-toggle" class="navbar-toggle-label">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-  <nav>
-    <a routerLink="/votes" routerLinkActive="active">Голосование</a>
-    <a routerLink="/rick-and-morty-votes" routerLinkActive="active">Rick And Morty API</a>
-    <a routerLink="/upload" routerLinkActive="active">Загрузить кандидата</a>
-  </nav>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand m-lg-3">Навигация</a>
+
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" [class.collapsed]="!isNavbarOpen">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngClass]="{'collapse': isNavbarOpen, 'navbar-collapse': true}" [class.show]="isNavbarOpen">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/rick-and-morty-votes" routerLinkActive="active">Rick And Morty Demo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/votes" routerLinkActive="active">Голосование</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/upload" routerLinkActive="active">Загрузить кандидата</a>
+      </li>
+    </ul>
+  </div>
+</nav>

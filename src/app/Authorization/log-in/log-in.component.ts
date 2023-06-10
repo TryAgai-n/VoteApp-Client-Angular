@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { environment } from '../../enviroments/enviroment';
+import { environment } from '../../enviroment/enviroment';
 
 @Component({
   selector: 'app-log-in',

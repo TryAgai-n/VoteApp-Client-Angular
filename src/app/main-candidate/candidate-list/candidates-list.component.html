@@ -1,9 +1,0 @@
-<div class="candidate-list">
-  <ng-container *ngFor="let document of documents">
-    <div class="candidate-card">
-      <img [src]='DownloadImage(document)' alt="Фото кандидата">
-      <p class="candidate-card-ID">ID: {{ document.id }}</p>
-      <button (click)="vote(document.id)">Голосовать</button>
-    </div>
-  </ng-container>
-</div>

@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/log-in']);
     }
     else {
-      this.router.navigate(['/rick-and-morty-votes']);
+      this.router.navigate(['/votes']);
     }
   }
 }

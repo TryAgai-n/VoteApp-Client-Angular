@@ -33,29 +33,34 @@ body {
 
 
 .candidate-card {
-  width: 250px;
-  padding: 20px;
+  width: 260px;
+  padding: 10px;
   text-align: center;
-  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(#ffffff, rgba(0, 182, 255, 0.09));
+  border-radius: 25px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .candidate-card:hover {
   transform: translateY(-5px);
-  transform: scale(102%);
 }
 
 .candidate-card img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 10px;
   filter: fade(10%);
   transition: filter 0.3s ease;
   animation: fade-in 0.3s ease-in;
+  border: 3px solid rgba(0, 0, 0, 0.14);
 }
 
 .candidate-card:hover img {
@@ -77,11 +82,11 @@ body {
 }
 
 .candidate-card button {
-  padding: 10px 20px;
-  background-color: #007bff;
+  padding: 10px 40px;
+  background-color: rgba(37, 132, 166, 0.56);
   color: #fff;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
