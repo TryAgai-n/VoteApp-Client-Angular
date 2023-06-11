@@ -6,6 +6,7 @@ import { environment } from '../enviroment/enviroment';
 
 interface Document {
   id: number;
+  previewDocumentId: number;
   imagePath: string;
 }
 
@@ -16,29 +17,29 @@ interface Document {
   styleUrls: ['./candidates-list.component.css']
 })
 export class CandidatesListComponent implements OnInit {
-  documents: Document[] = [];
+  candidates: Document[] = [];
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    this.ListDocument();
+    this.ListCandidate();
     console.log('Candidate on init');
   }
 
-  ListDocument() {
-    const url =  environment.host+'/api/Download/GetDocumentsList?skip=0&take=100';
+  ListCandidate() {
+    const url =  environment.host+'/api/Candidate/GetCandidateList?skip=0&take=100';
     // Создание заголовков с куками
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const options = { headers, withCredentials: true };
 
     this.http.get<Document[]>(url, options).subscribe(data => {
-      this.documents = data;
+      this.candidates = data;
     });
   }
 
   DownloadImage(document: Document): string {
     const baseUrl = environment.host+'/api/Download/DownloadFile';
-    const documentId = document.id;
+    const documentId = document.previewDocumentId;
     const quality = 3;
     return `${baseUrl}?documentId=${documentId}&quality=${quality}`;
   }

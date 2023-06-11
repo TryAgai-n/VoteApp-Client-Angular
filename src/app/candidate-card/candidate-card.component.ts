@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../enviroment/enviroment';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../enviroment/enviroment';
 
 @Component({
   selector: 'app-candidate-card',
@@ -18,7 +18,7 @@ export class CandidateCardComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
-      const candidateId = parseInt(params.get('id') || '', 10);
+      const candidateId = parseInt(<string>params.get('id'));
       if (!isNaN(candidateId)) {
         this.getCandidateById(candidateId);
       } else {
@@ -27,14 +27,25 @@ export class CandidateCardComponent implements OnInit {
     });
   }
 
-  getCandidateById(candidateId: number)
-  {
+  getCandidateById(candidateId: number) {
     const url = `${environment.host}/api/Candidate/GetCandidateById`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const options = { headers, withCredentials: true };
-
     this.http.post<any>(url, candidateId, options).subscribe(data => {
       this.candidate = data;
     });
+  }
+
+  getImageUrl(documentId: number): string {
+    return `${environment.host}/api/Download/DownloadFile?documentId=${documentId}&quality=1`;
+  }
+
+  makeImageMain(documentId: number) {
+    const mainImage = document.querySelector('.main-image') as HTMLImageElement;
+    const clickedImage = document.querySelector(`[src="${this.getImageUrl(documentId)}"]`) as HTMLImageElement;
+
+    if (mainImage && clickedImage) {
+      mainImage.src = clickedImage.src;
+    }
   }
 }
